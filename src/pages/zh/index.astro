@@ -1,48 +1,84 @@
 ---
 import BaseLayout from '../../layouts/BaseLayout.astro';
+import BankingQuiz from '../../components/BankingQuiz.astro';
+import WeeklyNews from '../../components/WeeklyNews.astro';
 ---
 
 <BaseLayout
-  title="OceanicFin - 蓝色经济、海洋金融与海洋投资"
-  description="可持续海洋投资、海洋金融、海上贸易、离岸银行和蓝色经济机遇的深度分析。"
+  title="OceanicFin - AI驱动的离岸银行与金融科技平台"
+  description="由人工智能驱动的新一代离岸银行平台。多币种账户、AI合规管理、跨境支付和蓝色经济投资。"
   lang="zh"
 >
   <Fragment slot="logo">OceanicFin</Fragment>
   <Fragment slot="footer-name">OceanicFin</Fragment>
 
   <section class="hero">
-    <h1>蓝色经济与海洋金融中心</h1>
-    <p>您值得信赖的海洋投资洞察、海上贸易分析和可持续蓝色经济机遇来源。</p>
+    <div class="hero-content">
+      <div class="hero-pill">
+        <span class="hero-pill-dot"></span>
+        AI驱动的离岸银行
+      </div>
+      <h1>OceanicFin</h1>
+      <div class="hero-gradient-text">智能银行 &middot; 全球覆盖</div>
+      <p class="hero-lead">由人工智能驱动的新一代离岸银行平台。多币种账户、AI驱动的合规管理和无缝跨境支付。</p>
+      <div class="hero-stats">
+        <div class="hero-stat">
+          <span class="hero-stat-icon">🤖</span>
+          <span class="hero-stat-label">AI驱动</span>
+          <span class="hero-stat-sub">智能分析</span>
+        </div>
+        <div class="hero-stat">
+          <span class="hero-stat-icon">💱</span>
+          <span class="hero-stat-label">多币种</span>
+          <span class="hero-stat-sub">50+种货币</span>
+        </div>
+        <div class="hero-stat">
+          <span class="hero-stat-icon">🌐</span>
+          <span class="hero-stat-label">全球访问</span>
+          <span class="hero-stat-sub">全球覆盖</span>
+        </div>
+      </div>
+    </div>
   </section>
 
   <div class="ad-slot">广告位 - Google AdSense</div>
 
+  <BankingQuiz lang="zh" />
+
   <div class="card-grid">
     <article class="card">
-      <h2>可持续海洋投资</h2>
-      <p>蓝色债券、海洋关联基金和符合ESG标准的海洋投资组合正在重塑资本市场。了解投资者如何在资助海洋保护的同时获得回报。</p>
+      <span class="card-icon">🏦</span>
+      <h2>离岸银行</h2>
+      <p>在顶级离岸司法管辖区提供多币种支持的国际账户。为寻求资产多元化的全球公民和企业量身打造的隐私优先银行解决方案。</p>
     </article>
     <article class="card">
-      <h2>海洋金融与航运</h2>
-      <p>全球航运金融、船舶租赁和港口基础设施融资。运费走势、船队扩张和绿色海洋物流转型分析。</p>
+      <span class="card-icon">🤖</span>
+      <h2>AI金融服务</h2>
+      <p>机器学习欺诈检测、自动化合规监控和智能投资组合分析。利用人工智能优化您的金融运营和风险管理。</p>
     </article>
     <article class="card">
-      <h2>海上贸易通道</h2>
-      <p>关键航运路线、贸易量趋势和影响全球海上贸易的地缘政治因素。从苏伊士运河到北极航道和印太航线。</p>
+      <span class="card-icon">💳</span>
+      <h2>数字支付</h2>
+      <p>通过SWIFT和SEPA网络的无缝跨境转账、加密货币-法币桥接和即时结算技术。以最低费用和最快速度在全球范围内转移资金。</p>
     </article>
     <article class="card">
-      <h2>离岸银行与监管</h2>
-      <p>离岸金融中心、海事税收框架和监管动态。沿海司法管辖区如何在竞争力与透明度之间取得平衡。</p>
+      <span class="card-icon">🌊</span>
+      <h2>蓝色经济投资</h2>
+      <p>海洋债券、海事投资基金、可持续海洋投资组合和符合ESG标准的蓝色经济机遇。投资于海洋产业和保护事业的未来。</p>
     </article>
     <article class="card">
-      <h2>海洋科技与创新</h2>
-      <p>水产养殖技术、深海采矿项目、波浪能初创企业和海洋生物技术。推动蓝色经济下一波增长的新兴领域。</p>
+      <span class="card-icon">🔐</span>
+      <h2>安全与合规</h2>
+      <p>自动化KYC/AML筛查、监管沙箱参与和多司法管辖区合规框架。通过AI驱动的解决方案领先应对不断变化的全球金融法规。</p>
     </article>
     <article class="card">
-      <h2>蓝色经济展望</h2>
-      <p>预计到2030年全球海洋经济将超过3万亿美元。渔业、沿海旅游、可再生能源和海洋生物技术的行业预测。</p>
+      <span class="card-icon">🌍</span>
+      <h2>全球市场准入</h2>
+      <p>代理银行网络、新兴市场准入、金砖国家一体化路径和贸易融资解决方案。进入成熟和发展中的金融市场机遇。</p>
     </article>
   </div>
 
   <div class="ad-slot">广告位 - Google AdSense</div>
+
+  <WeeklyNews lang="zh" />
 </BaseLayout>

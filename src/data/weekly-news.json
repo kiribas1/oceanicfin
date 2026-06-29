@@ -1,0 +1,82 @@
+[
+  {
+    "en": "The European Central Bank advances its digital euro pilot, testing offline payment capabilities across six eurozone countries with plans for broader rollout in 2027.",
+    "es": "El Banco Central Europeo avanza en su piloto del euro digital, probando capacidades de pago offline en seis paises de la eurozona con planes de expansión en 2027.",
+    "zh": "欧洲央行推进数字欧元试点，在六个欧元区国家测试离线支付功能，计划于2027年更大范围推广。",
+    "ru": "Европейский центральный банк продвигает пилотный проект цифрового евро, тестируя возможности офлайн-платежей в шести странах еврозоны с планами расширения в 2027 году.",
+    "pt": "O Banco Central Europeu avanca com o piloto do euro digital, testando pagamentos offline em seis paises da zona euro com planos de expansao em 2027.",
+    "ar": "يواصل البنك المركزي الأوروبي مشروعه التجريبي لليورو الرقمي، مع اختبار الدفع دون اتصال في ست دول من منطقة اليورو."
+  },
+  {
+    "en": "Singapore's MAS introduces new AI governance framework for financial institutions, requiring explainable AI models for credit scoring and fraud detection systems.",
+    "es": "La MAS de Singapur introduce un nuevo marco de gobernanza de IA para instituciones financieras, exigiendo modelos de IA explicables para scoring crediticio y deteccion de fraude.",
+    "zh": "新加坡金融管理局推出金融机构AI治理新框架，要求信用评分和欺诈检测系统使用可解释的AI模型。",
+    "ru": "Денежно-кредитное управление Сингапура вводит новую систему управления ИИ для финансовых учреждений, требуя объяснимых моделей ИИ для кредитного скоринга и обнаружения мошенничества.",
+    "pt": "A MAS de Singapura introduz novo marco de governanca de IA para instituicoes financeiras, exigindo modelos de IA explicaveis para scoring de credito e deteccao de fraude.",
+    "ar": "تقدم هيئة النقد السنغافورية إطارا جديدا لحوكمة الذكاء الاصطناعي للمؤسسات المالية، مع اشتراط نماذج ذكاء اصطناعي قابلة للتفسير."
+  },
+  {
+    "en": "SWIFT completes successful trials of blockchain-based cross-border payment settlement, reducing transaction times from days to under 60 seconds.",
+    "es": "SWIFT completa con exito pruebas de liquidacion de pagos transfronterizos basados en blockchain, reduciendo tiempos de transaccion de dias a menos de 60 segundos.",
+    "zh": "SWIFT成功完成基于区块链的跨境支付结算试验，将交易时间从数天缩短至60秒以内。",
+    "ru": "SWIFT успешно завершил испытания трансграничных платежей на основе блокчейна, сократив время транзакций с нескольких дней до менее чем 60 секунд.",
+    "pt": "SWIFT conclui com sucesso testes de liquidacao de pagamentos transfronteiricos baseados em blockchain, reduzindo tempos de transacao de dias para menos de 60 segundos.",
+    "ar": "أكملت سويفت بنجاح تجارب تسوية المدفوعات عبر الحدود القائمة على البلوكتشين، مع تقليص أوقات المعاملات من أيام إلى أقل من 60 ثانية."
+  },
+  {
+    "en": "Dubai's DIFC launches regulatory sandbox for AI-powered wealth management platforms, attracting 30 fintech startups in its first quarter.",
+    "es": "El DIFC de Dubai lanza sandbox regulatorio para plataformas de gestion patrimonial con IA, atrayendo 30 startups fintech en su primer trimestre.",
+    "zh": "迪拜国际金融中心推出AI驱动财富管理平台监管沙箱，首季度吸引30家金融科技初创企业。",
+    "ru": "DIFC Дубая запускает регуляторную песочницу для платформ управления капиталом на основе ИИ, привлекая 30 финтех-стартапов в первом квартале.",
+    "pt": "O DIFC de Dubai lanca sandbox regulatorio para plataformas de gestao patrimonial com IA, atraindo 30 startups fintech no primeiro trimestre.",
+    "ar": "أطلق مركز دبي المالي العالمي بيئة اختبار تنظيمية لمنصات إدارة الثروات المدعومة بالذكاء الاصطناعي، مستقطبا 30 شركة تقنية مالية ناشئة."
+  },
+  {
+    "en": "The Bank for International Settlements reports that 94% of central banks are now exploring CBDCs, with 35 countries in advanced pilot stages.",
+    "es": "El BIS informa que el 94% de los bancos centrales ahora exploran CBDCs, con 35 paises en etapas piloto avanzadas.",
+    "zh": "国际清算银行报告称94%的央行正在探索CBDC，其中35个国家处于高级试点阶段。",
+    "ru": "Банк международных расчётов сообщает, что 94% центральных банков изучают CBDC, причём 35 стран находятся на продвинутой стадии пилотирования.",
+    "pt": "O BIS relata que 94% dos bancos centrais estao explorando CBDCs, com 35 paises em estagios piloto avancados.",
+    "ar": "أفاد بنك التسويات الدولية أن 94% من البنوك المركزية تستكشف العملات الرقمية للبنوك المركزية، مع 35 دولة في مراحل تجريبية متقدمة."
+  },
+  {
+    "en": "New PSD3 draft regulation in the EU expands open banking to include insurance and investment data sharing, creating a unified financial data ecosystem.",
+    "es": "El borrador del PSD3 en la UE expande la banca abierta para incluir el intercambio de datos de seguros e inversiones, creando un ecosistema unificado de datos financieros.",
+    "zh": "欧盟PSD3法规草案将开放银行扩展至保险和投资数据共享，打造统一的金融数据生态系统。",
+    "ru": "Проект регламента PSD3 в ЕС расширяет открытый банкинг, включая обмен данными по страхованию и инвестициям, создавая единую экосистему финансовых данных.",
+    "pt": "O rascunho do PSD3 na UE expande o open banking para incluir compartilhamento de dados de seguros e investimentos, criando um ecossistema unificado de dados financeiros.",
+    "ar": "يوسع مشروع لائحة PSD3 في الاتحاد الأوروبي الخدمات المصرفية المفتوحة لتشمل مشاركة بيانات التأمين والاستثمار، مما يخلق نظاما بيئيا موحدا للبيانات المالية."
+  },
+  {
+    "en": "Hong Kong grants eight new virtual banking licenses with enhanced multi-currency capabilities, positioning itself as Asia's premier offshore digital banking hub.",
+    "es": "Hong Kong otorga ocho nuevas licencias de banca virtual con capacidades multicurrency mejoradas, posicionandose como el principal centro de banca digital offshore de Asia.",
+    "zh": "香港发放八张新虚拟银行牌照，增强多币种功能，巩固其作为亚洲首选离岸数字银行枢纽的地位。",
+    "ru": "Гонконг выдаёт восемь новых лицензий виртуальных банков с расширенными мультивалютными возможностями, позиционируя себя как ведущий офшорный цифровой банковский хаб Азии.",
+    "pt": "Hong Kong concede oito novas licencas de banco virtual com capacidades multi-moeda aprimoradas, posicionando-se como o principal hub de banco digital offshore da Asia.",
+    "ar": "تمنح هونغ كونغ ثماني رخص جديدة للبنوك الافتراضية مع قدرات متعددة العملات، لتعزز مكانتها كمركز رائد للخدمات المصرفية الرقمية الخارجية في آسيا."
+  },
+  {
+    "en": "Major banks adopt AI-powered real-time AML screening, reducing false positives by 70% while improving detection of complex money laundering patterns.",
+    "es": "Grandes bancos adoptan screening AML en tiempo real con IA, reduciendo falsos positivos en un 70% y mejorando la deteccion de patrones complejos de lavado de dinero.",
+    "zh": "各大银行采用AI驱动的实时反洗钱筛查，误报率降低70%，同时提高了复杂洗钱模式的检测能力。",
+    "ru": "Крупные банки внедряют скрининг AML в реальном времени на основе ИИ, снижая ложные срабатывания на 70% при улучшении обнаружения сложных схем отмывания денег.",
+    "pt": "Grandes bancos adotam triagem AML em tempo real com IA, reduzindo falsos positivos em 70% e melhorando a deteccao de padroes complexos de lavagem de dinheiro.",
+    "ar": "تتبنى البنوك الكبرى فحص مكافحة غسل الأموال بالذكاء الاصطناعي في الوقت الفعلي، مما يقلل الإنذارات الكاذبة بنسبة 70%."
+  },
+  {
+    "en": "The BRICS New Development Bank launches a unified cross-border payment system connecting member nations, bypassing traditional correspondent banking networks.",
+    "es": "El Nuevo Banco de Desarrollo del BRICS lanza un sistema unificado de pagos transfronterizos que conecta las naciones miembro, evitando las redes bancarias corresponsales tradicionales.",
+    "zh": "金砖国家新开发银行推出统一跨境支付系统，连接成员国，绕过传统代理银行网络。",
+    "ru": "Новый банк развития БРИКС запускает единую систему трансграничных платежей, соединяющую страны-участницы в обход традиционных корреспондентских банковских сетей.",
+    "pt": "O Novo Banco de Desenvolvimento do BRICS lanca um sistema unificado de pagamentos transfronteiricos conectando as nacoes membros, contornando as redes bancarias correspondentes tradicionais.",
+    "ar": "يطلق بنك التنمية الجديد لمجموعة بريكس نظام دفع موحد عبر الحدود يربط الدول الأعضاء، متجاوزا شبكات البنوك المراسلة التقليدية."
+  },
+  {
+    "en": "Global stablecoin market reaches $250 billion as regulated offerings from licensed banks gain ground over crypto-native issuers in institutional adoption.",
+    "es": "El mercado global de stablecoins alcanza $250 mil millones mientras las ofertas reguladas de bancos licenciados ganan terreno sobre los emisores crypto nativos en adopcion institucional.",
+    "zh": "全球稳定币市场达到2500亿美元，持牌银行的合规产品在机构采用方面逐步超越加密原生发行商。",
+    "ru": "Мировой рынок стейблкоинов достигает $250 млрд, поскольку регулируемые предложения лицензированных банков вытесняют крипто-нативных эмитентов в институциональном принятии.",
+    "pt": "O mercado global de stablecoins atinge $250 bilhoes enquanto ofertas reguladas de bancos licenciados ganham terreno sobre emissores cripto nativos na adocao institucional.",
+    "ar": "يصل سوق العملات المستقرة العالمي إلى 250 مليار دولار مع تقدم العروض المنظمة من البنوك المرخصة على المصدرين الأصليين للعملات المشفرة."
+  }
+]

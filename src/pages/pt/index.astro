@@ -1,48 +1,84 @@
 ---
 import BaseLayout from '../../layouts/BaseLayout.astro';
+import BankingQuiz from '../../components/BankingQuiz.astro';
+import WeeklyNews from '../../components/WeeklyNews.astro';
 ---
 
 <BaseLayout
-  title="OceanicFin - Economia Azul, Finanças Marinhas e Investimento Oceânico"
-  description="Análises sobre investimento oceânico sustentável, finanças marinhas, comércio marítimo, banca offshore e oportunidades na economia azul."
+  title="OceanicFin - Banca Offshore com IA e Plataforma Fintech"
+  description="Plataforma bancaria offshore de nova geracao impulsionada por inteligencia artificial. Contas multi-moeda, compliance com IA, pagamentos transfronteiricos e investimentos na economia azul."
   lang="pt"
 >
   <Fragment slot="logo">OceanicFin</Fragment>
   <Fragment slot="footer-name">OceanicFin</Fragment>
 
   <section class="hero">
-    <h1>Centro de Economia Azul e Finanças Marinhas</h1>
-    <p>Sua fonte confiável para análises de investimento oceânico, comércio marítimo e oportunidades na economia azul sustentável.</p>
+    <div class="hero-content">
+      <div class="hero-pill">
+        <span class="hero-pill-dot"></span>
+        Banca Offshore com IA
+      </div>
+      <h1>OceanicFin</h1>
+      <div class="hero-gradient-text">Banca Inteligente &middot; Alcance Global</div>
+      <p class="hero-lead">Plataforma bancaria offshore de nova geracao impulsionada por inteligencia artificial. Contas multi-moeda, compliance automatizado com IA e pagamentos transfronteiricos sem friccao.</p>
+      <div class="hero-stats">
+        <div class="hero-stat">
+          <span class="hero-stat-icon">🤖</span>
+          <span class="hero-stat-label">Impulsionado por IA</span>
+          <span class="hero-stat-sub">Analise Inteligente</span>
+        </div>
+        <div class="hero-stat">
+          <span class="hero-stat-icon">💱</span>
+          <span class="hero-stat-label">Multi-Moeda</span>
+          <span class="hero-stat-sub">50+ Moedas</span>
+        </div>
+        <div class="hero-stat">
+          <span class="hero-stat-icon">🌐</span>
+          <span class="hero-stat-label">Acesso Global</span>
+          <span class="hero-stat-sub">Mundial</span>
+        </div>
+      </div>
+    </div>
   </section>
 
-  <div class="ad-slot">Espaço Publicitário - Google AdSense</div>
+  <div class="ad-slot">Espaco Publicitario - Google AdSense</div>
+
+  <BankingQuiz lang="pt" />
 
   <div class="card-grid">
     <article class="card">
-      <h2>Investimento Oceânico Sustentável</h2>
-      <p>Títulos azuis, fundos vinculados ao oceano e carteiras marinhas alinhadas com ESG estão transformando os mercados de capitais. Descubra como investidores financiam a conservação oceânica gerando retornos.</p>
+      <span class="card-icon">🏦</span>
+      <h2>Banca Offshore</h2>
+      <p>Contas internacionais com suporte multi-moeda nas principais jurisdicoes offshore. Solucoes bancarias focadas em privacidade para cidadaos e empresas globais que buscam diversificacao de ativos.</p>
     </article>
     <article class="card">
-      <h2>Finanças Marinhas e Navegação</h2>
-      <p>Financiamento do transporte marítimo global, leasing de embarcações e infraestrutura portuária. Análise de tarifas de frete, expansão de frotas e a transição para a logística marítima verde.</p>
+      <span class="card-icon">🤖</span>
+      <h2>Financas com IA</h2>
+      <p>Deteccao de fraude com aprendizado de maquina, monitoramento automatizado de compliance e analise inteligente de carteiras. Utilize inteligencia artificial para otimizar operacoes financeiras e gestao de riscos.</p>
     </article>
     <article class="card">
-      <h2>Corredores de Comércio Marítimo</h2>
-      <p>Rotas marítimas estratégicas, tendências de volume comercial e fatores geopolíticos que moldam o comércio marítimo global. Do Canal de Suez às passagens árticas e rotas do Indo-Pacífico.</p>
+      <span class="card-icon">💳</span>
+      <h2>Pagamentos Digitais</h2>
+      <p>Transferencias transfronteiricas fluidas via redes SWIFT e SEPA, pontes cripto-fiat e tecnologia de liquidacao instantanea. Mova dinheiro globalmente com taxas minimas e velocidade maxima.</p>
     </article>
     <article class="card">
-      <h2>Banca Offshore e Regulamentação</h2>
-      <p>Centros financeiros offshore, estruturas fiscais marítimas e desenvolvimentos regulatórios. Como as jurisdições costeiras equilibram competitividade com transparência.</p>
+      <span class="card-icon">🌊</span>
+      <h2>Investimento na Economia Azul</h2>
+      <p>Titulos oceanicos, fundos de investimento maritimo, carteiras marinhas sustentaveis e oportunidades alinhadas com ESG. Invista no futuro das industrias oceanicas e conservacao.</p>
     </article>
     <article class="card">
-      <h2>Tecnologia e Inovação Oceânica</h2>
-      <p>Tecnologia de aquicultura, mineração em águas profundas, startups de energia das ondas e biotecnologia marinha. Os setores emergentes que impulsionam o crescimento da economia azul.</p>
+      <span class="card-icon">🔐</span>
+      <h2>Seguranca e Compliance</h2>
+      <p>Triagem automatizada KYC/AML, participacao em sandboxes regulatorios e marcos de compliance multijurisdicional. Mantenha-se atualizado com regulamentacoes financeiras globais com solucoes de IA.</p>
     </article>
     <article class="card">
-      <h2>Perspectivas da Economia Azul</h2>
-      <p>A economia oceânica global deve ultrapassar US$ 3 trilhões até 2030. Previsões setoriais para pesca, turismo costeiro, energia renovável e biotecnologia marinha.</p>
+      <span class="card-icon">🌍</span>
+      <h2>Acesso a Mercados Globais</h2>
+      <p>Redes de banca correspondente, acesso a mercados emergentes, caminhos de integracao BRICS e solucoes de financiamento comercial. Acesse oportunidades em mercados financeiros estabelecidos e em desenvolvimento.</p>
     </article>
   </div>
 
-  <div class="ad-slot">Espaço Publicitário - Google AdSense</div>
+  <div class="ad-slot">Espaco Publicitario - Google AdSense</div>
+
+  <WeeklyNews lang="pt" />
 </BaseLayout>

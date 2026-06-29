@@ -1,48 +1,84 @@
 ---
 import BaseLayout from '../../layouts/BaseLayout.astro';
+import BankingQuiz from '../../components/BankingQuiz.astro';
+import WeeklyNews from '../../components/WeeklyNews.astro';
 ---
 
 <BaseLayout
-  title="OceanicFin - Blue Economy, Marine Finance & Ocean Investment"
-  description="Insights on sustainable ocean investment, marine finance, maritime trade, offshore banking, and blue economy opportunities worldwide."
+  title="OceanicFin - AI-Powered Offshore Banking & Fintech Platform"
+  description="Next-generation offshore banking platform powered by artificial intelligence. Multi-currency accounts, AI-driven compliance, cross-border payments, and blue economy investments."
   lang="en"
 >
   <Fragment slot="logo">OceanicFin</Fragment>
   <Fragment slot="footer-name">OceanicFin</Fragment>
 
   <section class="hero">
-    <h1>Blue Economy & Marine Finance Hub</h1>
-    <p>Your trusted source for ocean investment insights, maritime trade analysis, and sustainable blue economy opportunities.</p>
+    <div class="hero-content">
+      <div class="hero-pill">
+        <span class="hero-pill-dot"></span>
+        AI-Powered Offshore Banking
+      </div>
+      <h1>OceanicFin</h1>
+      <div class="hero-gradient-text">Smart Banking &middot; Global Reach</div>
+      <p class="hero-lead">Next-generation offshore banking platform powered by artificial intelligence. Multi-currency accounts, AI-driven compliance, and seamless cross-border payments.</p>
+      <div class="hero-stats">
+        <div class="hero-stat">
+          <span class="hero-stat-icon">🤖</span>
+          <span class="hero-stat-label">AI-Powered</span>
+          <span class="hero-stat-sub">Smart Analytics</span>
+        </div>
+        <div class="hero-stat">
+          <span class="hero-stat-icon">💱</span>
+          <span class="hero-stat-label">Multi-Currency</span>
+          <span class="hero-stat-sub">50+ Currencies</span>
+        </div>
+        <div class="hero-stat">
+          <span class="hero-stat-icon">🌐</span>
+          <span class="hero-stat-label">Global Access</span>
+          <span class="hero-stat-sub">Worldwide</span>
+        </div>
+      </div>
+    </div>
   </section>
 
   <div class="ad-slot">Ad Space - Google AdSense</div>
 
+  <BankingQuiz lang="en" />
+
   <div class="card-grid">
     <article class="card">
-      <h2>Sustainable Ocean Investment</h2>
-      <p>Blue bonds, ocean-linked funds, and ESG-aligned marine portfolios are reshaping capital markets. Explore how investors are funding ocean conservation while generating returns.</p>
+      <span class="card-icon">🏦</span>
+      <h2>Offshore Banking</h2>
+      <p>International accounts with multi-currency support across premier offshore jurisdictions. Privacy-focused banking solutions designed for global citizens and businesses seeking asset diversification.</p>
     </article>
     <article class="card">
-      <h2>Marine Finance & Shipping</h2>
-      <p>Global shipping finance, vessel leasing, and port infrastructure funding. Analysis of freight rates, fleet expansion, and the transition to green maritime logistics.</p>
+      <span class="card-icon">🤖</span>
+      <h2>AI-Powered Finance</h2>
+      <p>Machine learning fraud detection, automated compliance monitoring, and smart portfolio analysis. Harness artificial intelligence to optimize your financial operations and risk management.</p>
     </article>
     <article class="card">
-      <h2>Maritime Trade Corridors</h2>
-      <p>Key shipping routes, trade volume trends, and geopolitical factors shaping global maritime commerce. From the Suez Canal to Arctic passages and Indo-Pacific lanes.</p>
+      <span class="card-icon">💳</span>
+      <h2>Digital Payments</h2>
+      <p>Seamless cross-border transfers via SWIFT and SEPA networks, crypto-fiat bridges, and instant settlement technology. Move money globally with minimal fees and maximum speed.</p>
     </article>
     <article class="card">
-      <h2>Offshore Banking & Regulation</h2>
-      <p>Offshore financial centers, maritime tax frameworks, and regulatory developments. How coastal jurisdictions are balancing competitiveness with transparency.</p>
+      <span class="card-icon">🌊</span>
+      <h2>Blue Economy Investment</h2>
+      <p>Ocean bonds, maritime investment funds, sustainable marine portfolios, and ESG-aligned blue economy opportunities. Invest in the future of ocean-based industries and conservation.</p>
     </article>
     <article class="card">
-      <h2>Ocean Technology & Innovation</h2>
-      <p>Aquaculture tech, deep-sea mining ventures, wave energy startups, and marine biotech. The emerging sectors driving the next wave of blue economy growth.</p>
+      <span class="card-icon">🔐</span>
+      <h2>Security & Compliance</h2>
+      <p>Automated KYC/AML screening, regulatory sandbox participation, and multi-jurisdictional compliance frameworks. Stay ahead of evolving global financial regulations with AI-driven solutions.</p>
     </article>
     <article class="card">
-      <h2>Blue Economy Outlook</h2>
-      <p>The global ocean economy is projected to exceed $3 trillion by 2030. Sector forecasts for fisheries, coastal tourism, renewable energy, and marine biotechnology.</p>
+      <span class="card-icon">🌍</span>
+      <h2>Global Market Access</h2>
+      <p>Correspondent banking networks, emerging market entry, BRICS integration pathways, and trade finance solutions. Access opportunities across established and developing financial markets.</p>
     </article>
   </div>
 
   <div class="ad-slot">Ad Space - Google AdSense</div>
+
+  <WeeklyNews lang="en" />
 </BaseLayout>

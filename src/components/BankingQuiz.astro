@@ -1,0 +1,453 @@
+---
+interface Props {
+  lang: string;
+}
+const { lang } = Astro.props;
+
+const labels: Record<string, Record<string, string>> = {
+  en: { title: 'Fintech & Banking Quiz', question: 'Question', of: 'of', score: 'Score', correct: 'Correct!', wrong: 'Wrong!', answer: 'The answer is', funFact: 'Fun fact', playAgain: 'Play Again', next: 'Next' },
+  es: { title: 'Quiz de Fintech y Banca', question: 'Pregunta', of: 'de', score: 'Puntuacion', correct: 'Correcto!', wrong: 'Incorrecto!', answer: 'La respuesta es', funFact: 'Dato curioso', playAgain: 'Jugar de nuevo', next: 'Siguiente' },
+  zh: { title: '金融科技与银行知识测验', question: '问题', of: '/', score: '得分', correct: '正确！', wrong: '错误！', answer: '答案是', funFact: '趣闻', playAgain: '再玩一次', next: '下一题' },
+  ru: { title: 'Викторина по финтеху и банкингу', question: 'Вопрос', of: 'из', score: 'Счёт', correct: 'Правильно!', wrong: 'Неправильно!', answer: 'Правильный ответ', funFact: 'Интересный факт', playAgain: 'Играть снова', next: 'Далее' },
+  pt: { title: 'Quiz de Fintech e Banca', question: 'Pergunta', of: 'de', score: 'Pontuacao', correct: 'Correto!', wrong: 'Errado!', answer: 'A resposta e', funFact: 'Curiosidade', playAgain: 'Jogar novamente', next: 'Proximo' },
+  ar: { title: 'اختبار التكنولوجيا المالية والبنوك', question: 'سؤال', of: 'من', score: 'النتيجة', correct: 'صحيح!', wrong: 'خطأ!', answer: 'الإجابة هي', funFact: 'معلومة', playAgain: 'العب مجددا', next: 'التالي' },
+};
+
+const l = labels[lang] || labels.en;
+
+const questions = [
+  {
+    q: { en: "What is KYC?", es: "Que es KYC?", zh: "什么是KYC？", ru: "Что такое KYC?", pt: "O que e KYC?", ar: "ما هو KYC؟" },
+    a: { en: "Know Your Customer", es: "Conoce a tu cliente", zh: "了解你的客户", ru: "Знай своего клиента", pt: "Conheca seu cliente", ar: "اعرف عميلك" },
+    options: {
+      en: ["Know Your Customer", "Key Yield Certificate", "Kyoto Compliance", "Knowledge Year Cycle"],
+      es: ["Conoce a tu cliente", "Certificado de rendimiento clave", "Cumplimiento de Kioto", "Ciclo de conocimiento anual"],
+      zh: ["了解你的客户", "关键收益证书", "京都合规", "知识年度周期"],
+      ru: ["Знай своего клиента", "Сертификат ключевой доходности", "Киотское соответствие", "Цикл годовых знаний"],
+      pt: ["Conheca seu cliente", "Certificado de rendimento chave", "Conformidade de Quioto", "Ciclo de conhecimento anual"],
+      ar: ["اعرف عميلك", "شهادة العائد الرئيسي", "امتثال كيوتو", "دورة المعرفة السنوية"]
+    },
+    fact: { en: "KYC regulations cost banks over $500M annually but prevent billions in fraud.", es: "Las regulaciones KYC cuestan a los bancos mas de $500M al año pero previenen miles de millones en fraude.", zh: "KYC法规每年花费银行超过5亿美元，但防止了数十亿美元的欺诈。", ru: "Регулирования KYC обходятся банкам более чем в $500 млн ежегодно, но предотвращают мошенничество на миллиарды.", pt: "Regulamentacoes KYC custam aos bancos mais de $500M anualmente mas previnem bilhoes em fraude.", ar: "تكلف لوائح KYC البنوك أكثر من 500 مليون دولار سنويا لكنها تمنع مليارات من الاحتيال." }
+  },
+  {
+    q: { en: "What does SWIFT stand for?", es: "Que significa SWIFT?", zh: "SWIFT代表什么？", ru: "Что означает SWIFT?", pt: "O que significa SWIFT?", ar: "ماذا يعني SWIFT؟" },
+    a: { en: "Society for Worldwide Interbank Financial Telecommunication", es: "Sociedad para las Telecomunicaciones Financieras Interbancarias Mundiales", zh: "环球银行间金融电信协会", ru: "Общество всемирных межбанковских финансовых телекоммуникаций", pt: "Sociedade para Telecomunicacoes Financeiras Interbancarias Mundiais", ar: "جمعية الاتصالات المالية العالمية بين البنوك" },
+    options: {
+      en: ["Society for Worldwide Interbank Financial Telecommunication", "Secure Wire International Fund Transfer", "Standard World Integrated Finance Technology", "Systematic Worldwide Interbank Funds Transit"],
+      es: ["Sociedad para las Telecomunicaciones Financieras Interbancarias Mundiales", "Transferencia Internacional Segura de Fondos", "Tecnologia Financiera Mundial Integrada", "Transito Sistematico de Fondos Interbancarios"],
+      zh: ["环球银行间金融电信协会", "安全国际电汇基金转账", "标准世界综合金融技术", "系统化全球银行间资金转移"],
+      ru: ["Общество всемирных межбанковских финансовых телекоммуникаций", "Безопасный международный перевод средств", "Стандартная мировая интегрированная финтех", "Систематический межбанковский транзит"],
+      pt: ["Sociedade para Telecomunicacoes Financeiras Interbancarias Mundiais", "Transferencia Internacional Segura de Fundos", "Tecnologia Financeira Mundial Integrada", "Transito Sistematico de Fundos Interbancarios"],
+      ar: ["جمعية الاتصالات المالية العالمية بين البنوك", "التحويل الدولي الآمن للأموال", "تكنولوجيا التمويل العالمية المتكاملة", "العبور المنهجي للأموال بين البنوك"]
+    },
+    fact: { en: "SWIFT connects over 11,000 financial institutions in 200+ countries.", es: "SWIFT conecta mas de 11,000 instituciones financieras en mas de 200 paises.", zh: "SWIFT连接了200多个国家的超过11,000家金融机构。", ru: "SWIFT связывает более 11 000 финансовых учреждений в 200+ странах.", pt: "SWIFT conecta mais de 11.000 instituicoes financeiras em mais de 200 paises.", ar: "يربط سويفت أكثر من 11,000 مؤسسة مالية في أكثر من 200 دولة." }
+  },
+  {
+    q: { en: "What is a correspondent bank?", es: "Que es un banco corresponsal?", zh: "什么是代理银行？", ru: "Что такое банк-корреспондент?", pt: "O que e um banco correspondente?", ar: "ما هو البنك المراسل؟" },
+    a: { en: "A bank that provides services on behalf of another bank", es: "Un banco que presta servicios en nombre de otro banco", zh: "代表另一家银行提供服务的银行", ru: "Банк, предоставляющий услуги от имени другого банка", pt: "Um banco que presta servicos em nome de outro banco", ar: "بنك يقدم خدمات نيابة عن بنك آخر" },
+    options: {
+      en: ["A bank that provides services on behalf of another bank", "A bank that only operates via mail", "A government-owned central bank", "A bank that handles only local transactions"],
+      es: ["Un banco que presta servicios en nombre de otro banco", "Un banco que opera solo por correo", "Un banco central gubernamental", "Un banco que maneja solo transacciones locales"],
+      zh: ["代表另一家银行提供服务的银行", "仅通过邮件运营的银行", "政府所有的中央银行", "仅处理本地交易的银行"],
+      ru: ["Банк, предоставляющий услуги от имени другого банка", "Банк, работающий только по почте", "Государственный центральный банк", "Банк только для местных операций"],
+      pt: ["Um banco que presta servicos em nome de outro banco", "Um banco que opera apenas por correio", "Um banco central governamental", "Um banco que lida apenas com transacoes locais"],
+      ar: ["بنك يقدم خدمات نيابة عن بنك آخر", "بنك يعمل عبر البريد فقط", "بنك مركزي حكومي", "بنك يتعامل فقط مع المعاملات المحلية"]
+    },
+    fact: { en: "Correspondent banking enables cross-border payments between countries that don't share direct banking links.", es: "La banca corresponsal permite pagos transfronterizos entre paises sin enlaces bancarios directos.", zh: "代理银行使没有直接银行联系的国家之间能够进行跨境支付。", ru: "Корреспондентский банкинг обеспечивает трансграничные платежи между странами без прямых банковских связей.", pt: "A banca correspondente permite pagamentos transfronteiricos entre paises sem ligacoes bancarias diretas.", ar: "تتيح الخدمات المصرفية المراسلة المدفوعات عبر الحدود بين الدول التي لا تشترك في روابط مصرفية مباشرة." }
+  },
+  {
+    q: { en: "What is an IBAN?", es: "Que es un IBAN?", zh: "什么是IBAN？", ru: "Что такое IBAN?", pt: "O que e um IBAN?", ar: "ما هو IBAN؟" },
+    a: { en: "International Bank Account Number", es: "Numero de cuenta bancaria internacional", zh: "国际银行账号", ru: "Международный номер банковского счёта", pt: "Numero de conta bancaria internacional", ar: "رقم الحساب المصرفي الدولي" },
+    options: {
+      en: ["International Bank Account Number", "Internal Banking Access Network", "Integrated Business Analytics Node", "International Bond Assessment Notation"],
+      es: ["Numero de cuenta bancaria internacional", "Red de acceso bancario interno", "Nodo analitico empresarial integrado", "Notacion de evaluacion de bonos internacionales"],
+      zh: ["国际银行账号", "内部银行访问网络", "集成业务分析节点", "国际债券评估符号"],
+      ru: ["Международный номер банковского счёта", "Внутренняя сеть банковского доступа", "Интегрированный узел бизнес-аналитики", "Международная нотация оценки облигаций"],
+      pt: ["Numero de conta bancaria internacional", "Rede de acesso bancario interno", "No analitico de negocios integrado", "Notacao de avaliacao de titulos internacionais"],
+      ar: ["رقم الحساب المصرفي الدولي", "شبكة الوصول المصرفي الداخلي", "عقدة تحليلات الأعمال المتكاملة", "ترميز تقييم السندات الدولية"]
+    },
+    fact: { en: "IBANs can be up to 34 characters long and are used in over 80 countries.", es: "Los IBAN pueden tener hasta 34 caracteres y se usan en mas de 80 paises.", zh: "IBAN最长可达34个字符，在80多个国家使用。", ru: "IBAN может содержать до 34 символов и используется более чем в 80 странах.", pt: "IBANs podem ter ate 34 caracteres e sao usados em mais de 80 paises.", ar: "يمكن أن يصل طول IBAN إلى 34 حرفا ويستخدم في أكثر من 80 دولة." }
+  },
+  {
+    q: { en: "What is AML?", es: "Que es AML?", zh: "什么是AML？", ru: "Что такое AML?", pt: "O que e AML?", ar: "ما هو AML؟" },
+    a: { en: "Anti-Money Laundering", es: "Anti lavado de dinero", zh: "反洗钱", ru: "Противодействие отмыванию денег", pt: "Anti lavagem de dinheiro", ar: "مكافحة غسل الأموال" },
+    options: {
+      en: ["Anti-Money Laundering", "Advanced Monetary Legislation", "Automated Market Lending", "Asset Management License"],
+      es: ["Anti lavado de dinero", "Legislacion monetaria avanzada", "Prestamos de mercado automatizados", "Licencia de gestion de activos"],
+      zh: ["反洗钱", "高级货币立法", "自动化市场借贷", "资产管理许可证"],
+      ru: ["Противодействие отмыванию денег", "Продвинутое денежное законодательство", "Автоматизированное рыночное кредитование", "Лицензия на управление активами"],
+      pt: ["Anti lavagem de dinheiro", "Legislacao monetaria avancada", "Emprestimos de mercado automatizados", "Licenca de gestao de ativos"],
+      ar: ["مكافحة غسل الأموال", "التشريع النقدي المتقدم", "الإقراض السوقي الآلي", "رخصة إدارة الأصول"]
+    },
+    fact: { en: "Global money laundering is estimated at 2-5% of global GDP, or up to $2 trillion annually.", es: "Se estima que el lavado de dinero global representa entre el 2-5% del PIB mundial.", zh: "全球洗钱规模估计占全球GDP的2-5%，每年高达2万亿美元。", ru: "Мировое отмывание денег оценивается в 2-5% мирового ВВП, до $2 трлн ежегодно.", pt: "A lavagem de dinheiro global e estimada em 2-5% do PIB mundial, ou ate $2 trilhoes anualmente.", ar: "يُقدر غسل الأموال العالمي بنسبة 2-5% من الناتج المحلي الإجمالي العالمي." }
+  },
+  {
+    q: { en: "What is a multi-currency account?", es: "Que es una cuenta multi-divisa?", zh: "什么是多币种账户？", ru: "Что такое мультивалютный счёт?", pt: "O que e uma conta multi-moeda?", ar: "ما هو الحساب متعدد العملات؟" },
+    a: { en: "An account that can hold multiple currencies", es: "Una cuenta que puede mantener multiples monedas", zh: "可以持有多种货币的账户", ru: "Счёт, на котором можно хранить несколько валют", pt: "Uma conta que pode manter multiplas moedas", ar: "حساب يمكنه الاحتفاظ بعملات متعددة" },
+    options: {
+      en: ["An account that can hold multiple currencies", "An account shared by multiple banks", "A credit card with multiple limits", "An account that earns multiple interest rates"],
+      es: ["Una cuenta que puede mantener multiples monedas", "Una cuenta compartida por varios bancos", "Una tarjeta de credito con multiples limites", "Una cuenta que genera multiples tasas de interes"],
+      zh: ["可以持有多种货币的账户", "多家银行共享的账户", "有多个额度的信用卡", "赚取多种利率的账户"],
+      ru: ["Счёт, на котором можно хранить несколько валют", "Счёт, разделяемый несколькими банками", "Кредитная карта с несколькими лимитами", "Счёт с несколькими процентными ставками"],
+      pt: ["Uma conta que pode manter multiplas moedas", "Uma conta compartilhada por varios bancos", "Um cartao de credito com multiplos limites", "Uma conta que rende multiplas taxas de juros"],
+      ar: ["حساب يمكنه الاحتفاظ بعملات متعددة", "حساب مشترك بين عدة بنوك", "بطاقة ائتمان بحدود متعددة", "حساب يكسب معدلات فائدة متعددة"]
+    },
+    fact: { en: "Multi-currency accounts can save up to 3% on foreign exchange fees compared to traditional conversions.", es: "Las cuentas multi-divisa pueden ahorrar hasta un 3% en comisiones de cambio de divisas.", zh: "与传统兑换相比，多币种账户可节省高达3%的外汇费用。", ru: "Мультивалютные счета позволяют экономить до 3% на комиссиях за обмен валют.", pt: "Contas multi-moeda podem economizar ate 3% em taxas de cambio.", ar: "يمكن لحسابات العملات المتعددة توفير ما يصل إلى 3% من رسوم الصرف الأجنبي." }
+  },
+  {
+    q: { en: "What does fintech mean?", es: "Que significa fintech?", zh: "金融科技是什么意思？", ru: "Что означает финтех?", pt: "O que significa fintech?", ar: "ماذا تعني التكنولوجيا المالية؟" },
+    a: { en: "Financial Technology", es: "Tecnologia Financiera", zh: "金融科技", ru: "Финансовые технологии", pt: "Tecnologia Financeira", ar: "التكنولوجيا المالية" },
+    options: {
+      en: ["Financial Technology", "Final Technical Standards", "Fiscal Network Trading", "Finance Terminal"],
+      es: ["Tecnologia Financiera", "Estandares tecnicos finales", "Comercio de red fiscal", "Terminal financiera"],
+      zh: ["金融科技", "最终技术标准", "财政网络交易", "金融终端"],
+      ru: ["Финансовые технологии", "Окончательные технические стандарты", "Фискальная сетевая торговля", "Финансовый терминал"],
+      pt: ["Tecnologia Financeira", "Padroes tecnicos finais", "Comercio de rede fiscal", "Terminal financeiro"],
+      ar: ["التكنولوجيا المالية", "المعايير التقنية النهائية", "تداول الشبكة المالية", "المحطة المالية"]
+    },
+    fact: { en: "The global fintech market is projected to reach $700 billion by 2030.", es: "Se proyecta que el mercado fintech global alcance los $700 mil millones para 2030.", zh: "预计全球金融科技市场到2030年将达到7000亿美元。", ru: "Прогнозируется, что мировой рынок финтеха достигнет $700 млрд к 2030 году.", pt: "O mercado global de fintech deve atingir $700 bilhoes ate 2030.", ar: "من المتوقع أن يصل سوق التكنولوجيا المالية العالمي إلى 700 مليار دولار بحلول 2030." }
+  },
+  {
+    q: { en: "What is open banking?", es: "Que es la banca abierta?", zh: "什么是开放银行？", ru: "Что такое открытый банкинг?", pt: "O que e open banking?", ar: "ما هي الخدمات المصرفية المفتوحة؟" },
+    a: { en: "Sharing financial data via APIs", es: "Compartir datos financieros mediante APIs", zh: "通过API共享金融数据", ru: "Обмен финансовыми данными через API", pt: "Compartilhamento de dados financeiros via APIs", ar: "مشاركة البيانات المالية عبر واجهات برمجة التطبيقات" },
+    options: {
+      en: ["Sharing financial data via APIs", "Banks with 24/7 physical branches", "Free banking without any fees", "Banking without identification"],
+      es: ["Compartir datos financieros mediante APIs", "Bancos con sucursales fisicas 24/7", "Banca gratuita sin comisiones", "Banca sin identificacion"],
+      zh: ["通过API共享金融数据", "24/7实体网点银行", "完全免费的银行服务", "无需身份证明的银行业务"],
+      ru: ["Обмен финансовыми данными через API", "Банки с круглосуточными отделениями", "Бесплатный банкинг без комиссий", "Банкинг без идентификации"],
+      pt: ["Compartilhamento de dados financeiros via APIs", "Bancos com agencias fisicas 24/7", "Banca gratuita sem taxas", "Banca sem identificacao"],
+      ar: ["مشاركة البيانات المالية عبر واجهات برمجة التطبيقات", "بنوك بفروع مادية على مدار الساعة", "خدمات مصرفية مجانية بدون رسوم", "خدمات مصرفية بدون هوية"]
+    },
+    fact: { en: "Open banking started with the EU's PSD2 directive in 2018 and has spread to 60+ countries.", es: "La banca abierta comenzo con la directiva PSD2 de la UE en 2018 y se ha expandido a mas de 60 paises.", zh: "开放银行始于2018年欧盟PSD2指令，已扩展到60多个国家。", ru: "Открытый банкинг начался с директивы PSD2 ЕС в 2018 году и распространился на 60+ стран.", pt: "O open banking comecou com a diretiva PSD2 da UE em 2018 e se expandiu para mais de 60 paises.", ar: "بدأت الخدمات المصرفية المفتوحة مع توجيه PSD2 الأوروبي في 2018 وانتشرت في أكثر من 60 دولة." }
+  },
+  {
+    q: { en: "What is a neobank?", es: "Que es un neobanco?", zh: "什么是新银行？", ru: "Что такое необанк?", pt: "O que e um neobanco?", ar: "ما هو البنك الرقمي؟" },
+    a: { en: "A digital-only bank without physical branches", es: "Un banco exclusivamente digital sin sucursales fisicas", zh: "没有实体网点的纯数字银行", ru: "Полностью цифровой банк без физических отделений", pt: "Um banco exclusivamente digital sem agencias fisicas", ar: "بنك رقمي بالكامل بدون فروع مادية" },
+    options: {
+      en: ["A digital-only bank without physical branches", "A newly established traditional bank", "A bank specializing in cryptocurrency", "A bank for technology companies only"],
+      es: ["Un banco exclusivamente digital sin sucursales fisicas", "Un banco tradicional recien establecido", "Un banco especializado en criptomonedas", "Un banco solo para empresas tecnologicas"],
+      zh: ["没有实体网点的纯数字银行", "新成立的传统银行", "专门经营加密货币的银行", "仅为科技公司服务的银行"],
+      ru: ["Полностью цифровой банк без физических отделений", "Недавно созданный традиционный банк", "Банк для криптовалют", "Банк только для IT-компаний"],
+      pt: ["Um banco exclusivamente digital sem agencias fisicas", "Um banco tradicional recentemente estabelecido", "Um banco especializado em criptomoedas", "Um banco apenas para empresas de tecnologia"],
+      ar: ["بنك رقمي بالكامل بدون فروع مادية", "بنك تقليدي حديث التأسيس", "بنك متخصص في العملات المشفرة", "بنك لشركات التكنولوجيا فقط"]
+    },
+    fact: { en: "Neobanks have attracted over 400 million customers globally, with Nubank leading at 90M+ users.", es: "Los neobancos han atraido mas de 400 millones de clientes globalmente, con Nubank liderando con mas de 90M de usuarios.", zh: "新银行在全球吸引了超过4亿客户，Nubank以超过9000万用户领先。", ru: "Необанки привлекли более 400 млн клиентов по всему миру, лидирует Nubank с 90+ млн пользователей.", pt: "Neobancos atrairam mais de 400 milhoes de clientes globalmente, com Nubank liderando com 90M+ usuarios.", ar: "استقطبت البنوك الرقمية أكثر من 400 مليون عميل عالميا." }
+  },
+  {
+    q: { en: "What is blockchain in banking?", es: "Que es blockchain en la banca?", zh: "区块链在银行业中是什么？", ru: "Что такое блокчейн в банкинге?", pt: "O que e blockchain na banca?", ar: "ما هو البلوكتشين في الخدمات المصرفية؟" },
+    a: { en: "A distributed ledger for secure transactions", es: "Un libro contable distribuido para transacciones seguras", zh: "用于安全交易的分布式账本", ru: "Распределённый реестр для безопасных транзакций", pt: "Um livro-razao distribuido para transacoes seguras", ar: "سجل موزع للمعاملات الآمنة" },
+    options: {
+      en: ["A distributed ledger for secure transactions", "A type of bank vault technology", "A centralized database for all banks", "An encrypted email system for bankers"],
+      es: ["Un libro contable distribuido para transacciones seguras", "Un tipo de tecnologia de boveda bancaria", "Una base de datos centralizada para todos los bancos", "Un sistema de correo encriptado para banqueros"],
+      zh: ["用于安全交易的分布式账本", "一种银行金库技术", "所有银行的集中数据库", "银行家的加密邮件系统"],
+      ru: ["Распределённый реестр для безопасных транзакций", "Технология банковских хранилищ", "Централизованная база данных всех банков", "Шифрованная почта для банкиров"],
+      pt: ["Um livro-razao distribuido para transacoes seguras", "Um tipo de tecnologia de cofre bancario", "Um banco de dados centralizado para todos os bancos", "Um sistema de email encriptado para banqueiros"],
+      ar: ["سجل موزع للمعاملات الآمنة", "نوع من تقنية خزائن البنوك", "قاعدة بيانات مركزية لجميع البنوك", "نظام بريد إلكتروني مشفر للمصرفيين"]
+    },
+    fact: { en: "Banks could save up to $12 billion per year by adopting blockchain technology.", es: "Los bancos podrian ahorrar hasta $12 mil millones al año adoptando tecnologia blockchain.", zh: "银行通过采用区块链技术每年可节省高达120亿美元。", ru: "Банки могут экономить до $12 млрд в год, внедряя блокчейн.", pt: "Bancos podem economizar ate $12 bilhoes por ano adotando tecnologia blockchain.", ar: "يمكن للبنوك توفير ما يصل إلى 12 مليار دولار سنويا بتبني تقنية البلوكتشين." }
+  },
+  {
+    q: { en: "What is a stablecoin?", es: "Que es una stablecoin?", zh: "什么是稳定币？", ru: "Что такое стейблкоин?", pt: "O que e uma stablecoin?", ar: "ما هي العملة المستقرة؟" },
+    a: { en: "A cryptocurrency pegged to a fiat currency", es: "Una criptomoneda vinculada a una moneda fiduciaria", zh: "与法定货币挂钩的加密货币", ru: "Криптовалюта, привязанная к фиатной валюте", pt: "Uma criptomoeda atrelada a uma moeda fiduciaria", ar: "عملة مشفرة مرتبطة بعملة تقليدية" },
+    options: {
+      en: ["A cryptocurrency pegged to a fiat currency", "A coin that never changes in value", "A physical coin made of stable materials", "A government-issued digital token"],
+      es: ["Una criptomoneda vinculada a una moneda fiduciaria", "Una moneda que nunca cambia de valor", "Una moneda fisica hecha de materiales estables", "Un token digital emitido por el gobierno"],
+      zh: ["与法定货币挂钩的加密货币", "永远不会改变价值的硬币", "由稳定材料制成的实体硬币", "政府发行的数字代币"],
+      ru: ["Криптовалюта, привязанная к фиатной валюте", "Монета с неизменной стоимостью", "Физическая монета из прочных материалов", "Государственный цифровой токен"],
+      pt: ["Uma criptomoeda atrelada a uma moeda fiduciaria", "Uma moeda que nunca muda de valor", "Uma moeda fisica feita de materiais estaveis", "Um token digital emitido pelo governo"],
+      ar: ["عملة مشفرة مرتبطة بعملة تقليدية", "عملة لا تتغير قيمتها أبدا", "عملة مادية مصنوعة من مواد مستقرة", "رمز رقمي صادر عن الحكومة"]
+    },
+    fact: { en: "USDT (Tether) processes more daily transaction volume than Visa and Mastercard combined.", es: "USDT (Tether) procesa mas volumen diario de transacciones que Visa y Mastercard juntas.", zh: "USDT（Tether）的日交易量超过Visa和Mastercard的总和。", ru: "USDT (Tether) обрабатывает больший дневной объём транзакций, чем Visa и Mastercard вместе.", pt: "USDT (Tether) processa mais volume diario de transacoes do que Visa e Mastercard juntas.", ar: "يعالج USDT (Tether) حجم معاملات يومية أكبر من فيزا وماستركارد مجتمعتين." }
+  },
+  {
+    q: { en: "What is AI fraud detection?", es: "Que es la deteccion de fraude con IA?", zh: "什么是AI欺诈检测？", ru: "Что такое обнаружение мошенничества с помощью ИИ?", pt: "O que e deteccao de fraude com IA?", ar: "ما هو كشف الاحتيال بالذكاء الاصطناعي؟" },
+    a: { en: "Using machine learning to identify suspicious transactions", es: "Usar aprendizaje automatico para identificar transacciones sospechosas", zh: "使用机器学习识别可疑交易", ru: "Использование машинного обучения для выявления подозрительных транзакций", pt: "Usar aprendizado de maquina para identificar transacoes suspeitas", ar: "استخدام التعلم الآلي لتحديد المعاملات المشبوهة" },
+    options: {
+      en: ["Using machine learning to identify suspicious transactions", "Having AI robots guard bank vaults", "Artificial intelligence replacing bank tellers", "Using chatbots to report fraud"],
+      es: ["Usar aprendizaje automatico para identificar transacciones sospechosas", "Robots de IA custodiando bovedas bancarias", "IA reemplazando cajeros bancarios", "Usar chatbots para reportar fraude"],
+      zh: ["使用机器学习识别可疑交易", "让AI机器人守卫银行金库", "人工智能取代银行柜员", "使用聊天机器人报告欺诈"],
+      ru: ["Использование машинного обучения для выявления подозрительных транзакций", "ИИ-роботы охраняют хранилища банков", "ИИ заменяет кассиров", "Чат-боты для сообщений о мошенничестве"],
+      pt: ["Usar aprendizado de maquina para identificar transacoes suspeitas", "Robos de IA guardando cofres bancarios", "IA substituindo caixas de banco", "Usar chatbots para reportar fraude"],
+      ar: ["استخدام التعلم الآلي لتحديد المعاملات المشبوهة", "روبوتات ذكاء اصطناعي لحراسة خزائن البنوك", "الذكاء الاصطناعي يحل محل صرافي البنوك", "استخدام روبوتات المحادثة للإبلاغ عن الاحتيال"]
+    },
+    fact: { en: "AI fraud detection systems can analyze thousands of transactions per second with 95%+ accuracy.", es: "Los sistemas de deteccion de fraude con IA pueden analizar miles de transacciones por segundo con mas del 95% de precision.", zh: "AI欺诈检测系统每秒可分析数千笔交易，准确率超过95%。", ru: "Системы обнаружения мошенничества на основе ИИ анализируют тысячи транзакций в секунду с точностью 95%+.", pt: "Sistemas de deteccao de fraude com IA podem analisar milhares de transacoes por segundo com mais de 95% de precisao.", ar: "يمكن لأنظمة كشف الاحتيال بالذكاء الاصطناعي تحليل آلاف المعاملات في الثانية بدقة تتجاوز 95%." }
+  },
+  {
+    q: { en: "What is PSD2?", es: "Que es PSD2?", zh: "什么是PSD2？", ru: "Что такое PSD2?", pt: "O que e PSD2?", ar: "ما هو PSD2؟" },
+    a: { en: "EU payment services directive enabling open banking", es: "Directiva de servicios de pago de la UE que habilita la banca abierta", zh: "欧盟支付服务指令，促进开放银行", ru: "Директива ЕС о платёжных услугах, обеспечивающая открытый банкинг", pt: "Diretiva de servicos de pagamento da UE que habilita o open banking", ar: "توجيه خدمات الدفع الأوروبي الذي يمكّن الخدمات المصرفية المفتوحة" },
+    options: {
+      en: ["EU payment services directive enabling open banking", "A type of payment processing device", "A banking security protocol version 2", "Personal Savings Directive 2"],
+      es: ["Directiva de servicios de pago de la UE que habilita la banca abierta", "Un tipo de dispositivo de procesamiento de pagos", "Un protocolo de seguridad bancaria version 2", "Directiva de Ahorro Personal 2"],
+      zh: ["欧盟支付服务指令，促进开放银行", "一种支付处理设备", "银行安全协议第二版", "个人储蓄指令2"],
+      ru: ["Директива ЕС о платёжных услугах, обеспечивающая открытый банкинг", "Тип устройства обработки платежей", "Протокол банковской безопасности версии 2", "Директива о личных сбережениях 2"],
+      pt: ["Diretiva de servicos de pagamento da UE que habilita o open banking", "Um tipo de dispositivo de processamento de pagamentos", "Um protocolo de seguranca bancaria versao 2", "Diretiva de Poupanca Pessoal 2"],
+      ar: ["توجيه خدمات الدفع الأوروبي الذي يمكّن الخدمات المصرفية المفتوحة", "نوع من أجهزة معالجة الدفع", "بروتوكول أمان مصرفي الإصدار 2", "توجيه الادخار الشخصي 2"]
+    },
+    fact: { en: "PSD2 has enabled over 500 licensed third-party payment providers across Europe.", es: "PSD2 ha habilitado mas de 500 proveedores de pago de terceros con licencia en toda Europa.", zh: "PSD2在整个欧洲促成了超过500家持牌第三方支付提供商。", ru: "PSD2 позволила лицензировать более 500 сторонних платёжных провайдеров по всей Европе.", pt: "PSD2 habilitou mais de 500 provedores de pagamento terceirizados licenciados em toda a Europa.", ar: "مكّن PSD2 أكثر من 500 مزود دفع مرخص من طرف ثالث في جميع أنحاء أوروبا." }
+  },
+  {
+    q: { en: "What is a digital wallet?", es: "Que es una billetera digital?", zh: "什么是数字钱包？", ru: "Что такое цифровой кошелёк?", pt: "O que e uma carteira digital?", ar: "ما هي المحفظة الرقمية؟" },
+    a: { en: "An electronic device or service for transactions", es: "Un dispositivo o servicio electronico para transacciones", zh: "用于交易的电子设备或服务", ru: "Электронное устройство или сервис для транзакций", pt: "Um dispositivo ou servico eletronico para transacoes", ar: "جهاز أو خدمة إلكترونية للمعاملات" },
+    options: {
+      en: ["An electronic device or service for transactions", "A physical wallet with a screen", "A bank account for digital currencies only", "A folder for storing digital receipts"],
+      es: ["Un dispositivo o servicio electronico para transacciones", "Una billetera fisica con pantalla", "Una cuenta bancaria solo para monedas digitales", "Una carpeta para guardar recibos digitales"],
+      zh: ["用于交易的电子设备或服务", "带屏幕的实体钱包", "仅用于数字货币的银行账户", "存储数字收据的文件夹"],
+      ru: ["Электронное устройство или сервис для транзакций", "Физический кошелёк с экраном", "Счёт только для цифровых валют", "Папка для хранения цифровых чеков"],
+      pt: ["Um dispositivo ou servico eletronico para transacoes", "Uma carteira fisica com tela", "Uma conta bancaria apenas para moedas digitais", "Uma pasta para armazenar recibos digitais"],
+      ar: ["جهاز أو خدمة إلكترونية للمعاملات", "محفظة مادية بشاشة", "حساب مصرفي للعملات الرقمية فقط", "مجلد لتخزين الإيصالات الرقمية"]
+    },
+    fact: { en: "Digital wallet users surpassed 3.4 billion in 2025, covering nearly half the world's population.", es: "Los usuarios de billeteras digitales superaron los 3.400 millones en 2025, cubriendo casi la mitad de la poblacion mundial.", zh: "2025年数字钱包用户突破34亿，覆盖全球近一半人口。", ru: "Пользователей цифровых кошельков в 2025 году стало более 3,4 млрд — почти половина населения мира.", pt: "Usuarios de carteiras digitais ultrapassaram 3,4 bilhoes em 2025, cobrindo quase metade da populacao mundial.", ar: "تجاوز عدد مستخدمي المحافظ الرقمية 3.4 مليار في 2025، ليغطي ما يقرب من نصف سكان العالم." }
+  },
+  {
+    q: { en: "What is a cross-border payment?", es: "Que es un pago transfronterizo?", zh: "什么是跨境支付？", ru: "Что такое трансграничный платёж?", pt: "O que e um pagamento transfronteirico?", ar: "ما هو الدفع عبر الحدود؟" },
+    a: { en: "A financial transfer between different countries", es: "Una transferencia financiera entre diferentes paises", zh: "不同国家之间的资金转账", ru: "Финансовый перевод между разными странами", pt: "Uma transferencia financeira entre diferentes paises", ar: "تحويل مالي بين دول مختلفة" },
+    options: {
+      en: ["A financial transfer between different countries", "A payment made while crossing a border", "A domestic wire transfer", "A payment between two local banks"],
+      es: ["Una transferencia financiera entre diferentes paises", "Un pago realizado al cruzar una frontera", "Una transferencia bancaria domestica", "Un pago entre dos bancos locales"],
+      zh: ["不同国家之间的资金转账", "过境时进行的支付", "国内银行转账", "两家本地银行之间的支付"],
+      ru: ["Финансовый перевод между разными странами", "Платёж при пересечении границы", "Внутренний банковский перевод", "Платёж между двумя местными банками"],
+      pt: ["Uma transferencia financeira entre diferentes paises", "Um pagamento feito ao cruzar uma fronteira", "Uma transferencia bancaria domestica", "Um pagamento entre dois bancos locais"],
+      ar: ["تحويل مالي بين دول مختلفة", "دفعة تتم أثناء عبور الحدود", "تحويل مصرفي محلي", "دفعة بين بنكين محليين"]
+    },
+    fact: { en: "Cross-border payments total over $150 trillion annually, with average fees of 6% for remittances.", es: "Los pagos transfronterizos totalizan mas de $150 billones anuales, con comisiones promedio del 6% para remesas.", zh: "跨境支付年总额超过150万亿美元，汇款平均手续费为6%。", ru: "Трансграничные платежи составляют более $150 трлн ежегодно со средней комиссией за переводы 6%.", pt: "Pagamentos transfronteiricos totalizam mais de $150 trilhoes anualmente, com taxas medias de 6% para remessas.", ar: "تبلغ المدفوعات عبر الحدود أكثر من 150 تريليون دولار سنويا، بمتوسط رسوم 6% للتحويلات." }
+  },
+  {
+    q: { en: "What is a regulatory sandbox?", es: "Que es un sandbox regulatorio?", zh: "什么是监管沙箱？", ru: "Что такое регуляторная песочница?", pt: "O que e um sandbox regulatorio?", ar: "ما هي البيئة التنظيمية التجريبية؟" },
+    a: { en: "A framework for testing financial innovations under relaxed regulations", es: "Un marco para probar innovaciones financieras bajo regulaciones relajadas", zh: "在宽松监管下测试金融创新的框架", ru: "Режим тестирования финансовых инноваций при ослабленном регулировании", pt: "Um quadro para testar inovacoes financeiras sob regulamentacoes flexiveis", ar: "إطار لاختبار الابتكارات المالية تحت لوائح مخففة" },
+    options: {
+      en: ["A framework for testing financial innovations under relaxed regulations", "A children's play area in a bank", "Software for testing bank security", "A virtual environment for training bankers"],
+      es: ["Un marco para probar innovaciones financieras bajo regulaciones relajadas", "Un area de juego para niños en un banco", "Software para probar la seguridad bancaria", "Un entorno virtual para capacitar banqueros"],
+      zh: ["在宽松监管下测试金融创新的框架", "银行里的儿童游乐区", "测试银行安全的软件", "培训银行家的虚拟环境"],
+      ru: ["Режим тестирования финансовых инноваций при ослабленном регулировании", "Детская площадка в банке", "ПО для тестирования безопасности банков", "Виртуальная среда для обучения банкиров"],
+      pt: ["Um quadro para testar inovacoes financeiras sob regulamentacoes flexiveis", "Uma area de lazer para criancas em um banco", "Software para testar seguranca bancaria", "Um ambiente virtual para treinar banqueiros"],
+      ar: ["إطار لاختبار الابتكارات المالية تحت لوائح مخففة", "منطقة لعب للأطفال في البنك", "برنامج لاختبار أمان البنوك", "بيئة افتراضية لتدريب المصرفيين"]
+    },
+    fact: { en: "Over 70 countries now operate financial regulatory sandboxes, with the UK's FCA pioneering the concept in 2016.", es: "Mas de 70 paises operan sandboxes regulatorios financieros, con la FCA del Reino Unido siendo pionera en 2016.", zh: "目前超过70个国家运营金融监管沙箱，英国FCA于2016年率先推出这一概念。", ru: "Более 70 стран имеют регуляторные песочницы, первопроходцем стала FCA Великобритании в 2016 году.", pt: "Mais de 70 paises operam sandboxes regulatorios financeiros, com a FCA do Reino Unido sendo pioneira em 2016.", ar: "تدير أكثر من 70 دولة بيئات تنظيمية تجريبية مالية، وكانت هيئة السلوك المالي البريطانية رائدة في هذا المفهوم عام 2016." }
+  }
+];
+---
+
+<section class="quiz-section" id="banking-quiz">
+  <div class="quiz-container">
+    <h2 class="quiz-title">{l.title}</h2>
+    <div class="quiz-header">
+      <span class="quiz-progress" id="quiz-progress">{l.question} 1 {l.of} 12</span>
+      <span class="quiz-score" id="quiz-score">{l.score}: 0/0</span>
+    </div>
+    <div class="quiz-question" id="quiz-question"></div>
+    <div class="quiz-options" id="quiz-options"></div>
+    <div class="quiz-feedback" id="quiz-feedback"></div>
+    <button class="quiz-btn" id="quiz-next" style="display:none">{l.next}</button>
+    <button class="quiz-btn quiz-btn-replay" id="quiz-replay" style="display:none">{l.playAgain}</button>
+  </div>
+</section>
+
+<script define:vars={{ questions, lang, labels }}>
+  const l = labels[lang] || labels.en;
+  const allQ = questions.map((q, i) => ({ ...q, idx: i }));
+
+  // Shuffle and pick 12
+  function shuffle(arr) {
+    const a = [...arr];
+    for (let i = a.length - 1; i > 0; i--) {
+      const j = Math.floor(Math.random() * (i + 1));
+      [a[i], a[j]] = [a[j], a[i]];
+    }
+    return a;
+  }
+
+  const gameQuestions = shuffle(allQ).slice(0, 12);
+  let current = 0;
+  let score = 0;
+
+  function renderQuestion() {
+    const q = gameQuestions[current];
+    const qEl = document.getElementById('quiz-question');
+    const oEl = document.getElementById('quiz-options');
+    const fEl = document.getElementById('quiz-feedback');
+    const nEl = document.getElementById('quiz-next');
+    const pEl = document.getElementById('quiz-progress');
+    const rEl = document.getElementById('quiz-replay');
+
+    pEl.textContent = `${l.question} ${current + 1} ${l.of} 12`;
+    qEl.textContent = q.q[lang] || q.q.en;
+    fEl.textContent = '';
+    fEl.className = 'quiz-feedback';
+    nEl.style.display = 'none';
+    rEl.style.display = 'none';
+
+    const opts = shuffle(q.options[lang] || q.options.en);
+    oEl.innerHTML = '';
+    opts.forEach(opt => {
+      const btn = document.createElement('button');
+      btn.className = 'quiz-option';
+      btn.textContent = opt;
+      btn.addEventListener('click', () => handleAnswer(opt, q));
+      oEl.appendChild(btn);
+    });
+  }
+
+  function handleAnswer(selected, q) {
+    const correct = (q.a[lang] || q.a.en);
+    const isCorrect = selected === correct;
+    const fEl = document.getElementById('quiz-feedback');
+    const oEl = document.getElementById('quiz-options');
+    const nEl = document.getElementById('quiz-next');
+    const sEl = document.getElementById('quiz-score');
+
+    // Disable all buttons
+    oEl.querySelectorAll('.quiz-option').forEach(btn => {
+      btn.disabled = true;
+      if (btn.textContent === correct) btn.classList.add('correct');
+      if (btn.textContent === selected && !isCorrect) btn.classList.add('wrong');
+    });
+
+    if (isCorrect) {
+      score++;
+      fEl.innerHTML = `<strong>${l.correct}</strong> ${l.funFact}: ${q.fact[lang] || q.fact.en}`;
+      fEl.className = 'quiz-feedback show correct';
+    } else {
+      fEl.innerHTML = `<strong>${l.wrong}</strong> ${l.answer}: ${correct}. ${l.funFact}: ${q.fact[lang] || q.fact.en}`;
+      fEl.className = 'quiz-feedback show wrong';
+    }
+
+    sEl.textContent = `${l.score}: ${score}/${current + 1}`;
+
+    if (current < 11) {
+      nEl.style.display = 'inline-block';
+    } else {
+      const rEl = document.getElementById('quiz-replay');
+      rEl.style.display = 'inline-block';
+    }
+  }
+
+  document.getElementById('quiz-next').addEventListener('click', () => {
+    current++;
+    renderQuestion();
+  });
+
+  document.getElementById('quiz-replay').addEventListener('click', () => {
+    window.location.reload();
+  });
+
+  renderQuestion();
+</script>
+
+<style>
+  .quiz-section {
+    max-width: 1100px;
+    margin: 40px auto;
+    padding: 0 20px;
+  }
+  .quiz-container {
+    background: rgba(15, 23, 42, 0.6);
+    backdrop-filter: blur(8px);
+    border: 1px solid rgba(14, 165, 233, 0.15);
+    border-radius: 16px;
+    padding: 36px;
+  }
+  .quiz-title {
+    font-size: 1.6rem;
+    font-weight: 800;
+    color: #f1f5f9;
+    margin-bottom: 20px;
+    text-align: center;
+    background: linear-gradient(135deg, #0ea5e9, #14b8a6);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+  .quiz-header {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 20px;
+    font-size: 0.9rem;
+    color: #94a3b8;
+    font-weight: 600;
+  }
+  .quiz-question {
+    font-size: 1.2rem;
+    font-weight: 700;
+    color: #e2e8f0;
+    margin-bottom: 20px;
+    line-height: 1.5;
+  }
+  .quiz-options {
+    display: grid;
+    gap: 10px;
+    margin-bottom: 16px;
+  }
+  .quiz-option {
+    background: rgba(6, 8, 16, 0.6);
+    border: 1px solid rgba(14, 165, 233, 0.2);
+    border-radius: 10px;
+    padding: 14px 18px;
+    color: #e2e8f0;
+    font-size: 0.95rem;
+    cursor: pointer;
+    transition: all 0.2s;
+    text-align: left;
+    font-family: inherit;
+  }
+  .quiz-option:hover:not(:disabled) {
+    border-color: #0ea5e9;
+    background: rgba(14, 165, 233, 0.1);
+  }
+  .quiz-option:disabled {
+    cursor: default;
+    opacity: 0.7;
+  }
+  .quiz-option.correct {
+    border-color: #14b8a6 !important;
+    background: rgba(20, 184, 166, 0.15) !important;
+    opacity: 1 !important;
+  }
+  .quiz-option.wrong {
+    border-color: #ef4444 !important;
+    background: rgba(239, 68, 68, 0.15) !important;
+    opacity: 1 !important;
+  }
+  .quiz-feedback {
+    padding: 0;
+    margin-bottom: 16px;
+    border-radius: 10px;
+    font-size: 0.9rem;
+    line-height: 1.6;
+    max-height: 0;
+    overflow: hidden;
+    transition: all 0.3s;
+  }
+  .quiz-feedback.show {
+    padding: 14px 18px;
+    max-height: 200px;
+  }
+  .quiz-feedback.correct {
+    background: rgba(20, 184, 166, 0.1);
+    border: 1px solid rgba(20, 184, 166, 0.3);
+    color: #5eead4;
+  }
+  .quiz-feedback.wrong {
+    background: rgba(239, 68, 68, 0.1);
+    border: 1px solid rgba(239, 68, 68, 0.3);
+    color: #fca5a5;
+  }
+  .quiz-btn {
+    background: linear-gradient(135deg, #0ea5e9, #0369a1);
+    color: white;
+    border: none;
+    border-radius: 10px;
+    padding: 12px 28px;
+    font-size: 0.95rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.2s;
+    font-family: inherit;
+  }
+  .quiz-btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 16px rgba(14, 165, 233, 0.3);
+  }
+  .quiz-btn-replay {
+    background: linear-gradient(135deg, #14b8a6, #0d9488);
+  }
+</style>

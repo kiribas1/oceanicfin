@@ -1,0 +1,105 @@
+---
+import newsData from '../data/weekly-news.json';
+
+interface Props {
+  lang: string;
+}
+const { lang } = Astro.props;
+
+const titles: Record<string, string> = {
+  en: 'Weekly Fintech & Banking News',
+  es: 'Noticias Semanales de Fintech y Banca',
+  zh: '每周金融科技与银行新闻',
+  ru: 'Еженедельные новости финтеха и банкинга',
+  pt: 'Noticias Semanais de Fintech e Banca',
+  ar: 'أخبار التكنولوجيا المالية والبنوك الأسبوعية',
+};
+
+const title = titles[lang] || titles.en;
+---
+
+<section class="news-section">
+  <div class="news-container">
+    <h2 class="news-title">{title}</h2>
+    <div class="news-list">
+      {newsData.map((item: Record<string, string>, i: number) => (
+        <div class="news-item">
+          <span class="news-number">{String(i + 1).padStart(2, '0')}</span>
+          <p class="news-text">{item[lang] || item.en}</p>
+        </div>
+      ))}
+    </div>
+  </div>
+</section>
+
+<style>
+  .news-section {
+    max-width: 1100px;
+    margin: 40px auto;
+    padding: 0 20px;
+  }
+  .news-container {
+    background: rgba(15, 23, 42, 0.6);
+    backdrop-filter: blur(8px);
+    border: 1px solid rgba(14, 165, 233, 0.15);
+    border-radius: 16px;
+    padding: 36px;
+    position: relative;
+    overflow: hidden;
+  }
+  .news-container::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 3px;
+    background: linear-gradient(90deg, #0ea5e9, #14b8a6);
+  }
+  .news-title {
+    font-size: 1.6rem;
+    font-weight: 800;
+    color: #f1f5f9;
+    margin-bottom: 24px;
+    text-align: center;
+    background: linear-gradient(135deg, #0ea5e9, #14b8a6);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+  .news-list {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+  }
+  .news-item {
+    display: flex;
+    gap: 16px;
+    align-items: flex-start;
+    padding: 16px;
+    background: rgba(6, 8, 16, 0.4);
+    border-radius: 10px;
+    border: 1px solid rgba(14, 165, 233, 0.08);
+    transition: all 0.2s;
+  }
+  .news-item:hover {
+    border-color: rgba(14, 165, 233, 0.2);
+    background: rgba(6, 8, 16, 0.6);
+  }
+  .news-number {
+    font-size: 0.8rem;
+    font-weight: 700;
+    color: #0ea5e9;
+    background: rgba(14, 165, 233, 0.1);
+    border-radius: 6px;
+    padding: 4px 8px;
+    flex-shrink: 0;
+    min-width: 28px;
+    text-align: center;
+  }
+  .news-text {
+    color: #cbd5e1;
+    font-size: 0.92rem;
+    line-height: 1.6;
+  }
+</style>
