@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://oceanicfin.link/sitemap-index.xml
+Sitemap: https://oceanicfin.com/sitemap-index.xml

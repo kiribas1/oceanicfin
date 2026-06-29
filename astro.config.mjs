@@ -2,7 +2,7 @@ import { defineConfig } from 'astro/config';
 import sitemap from '@astrojs/sitemap';
 
 export default defineConfig({
-  site: 'https://oceanicfin.link',
+  site: 'https://oceanicfin.com',
   integrations: [sitemap()],
   i18n: {
     defaultLocale: 'en',
